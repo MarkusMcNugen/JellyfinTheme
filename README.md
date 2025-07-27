@@ -1,12 +1,8 @@
-# Jellyfin Ultimate Theme Collection
+# Jellyfin Ultimate Collection Theme
 
 [![Jellyfin Badge](https://img.shields.io/badge/Jellyfin-10.10.x-00A4DA)](https://jellyfin.org/)
-[![Theme Status](https://img.shields.io/badge/Status-Active-brightgreen)](https://github.com/CTalvio/Ultrachromic)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-July%202025-blue)](https://github.com/CTalvio/Ultrachromic)
 
 > A feature-rich custom theme for Jellyfin media server combining Ultrachromic's flexibility with enhanced visual elements, focused on creating an elegant and responsive media viewing experience.
-
-![Theme Preview](https://i.imgur.com/placeholder.jpg)
 
 ## ✨ Features
 
@@ -117,6 +113,8 @@ To set a custom login background, modify:
 ### My Media Section Customization
 
 The My Media section features gradient-bordered buttons that can be customized:
+
+![My Media Section](https://raw.githubusercontent.com/MarkusMcNugen/JellyfinTheme/main/MyMediaSmall.png)
 
 ```css
 /* Text Gradient Colors */
