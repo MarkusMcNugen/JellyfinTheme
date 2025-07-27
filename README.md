@@ -117,13 +117,25 @@ The My Media section features gradient-bordered buttons that can be customized:
 ![My Media Section](https://raw.githubusercontent.com/MarkusMcNugen/JellyfinTheme/main/MyMediaSmall.png)
 
 ```css
-/* Text Gradient Colors */
+/* Text Gradient Effect for My Media Buttons */
 .section0 a.homeLibraryButton .homeLibraryText,
 .section0 a.homeLibraryButton .homeLibraryIcon {
     background: linear-gradient(135deg, #00a4da 0%, #aa5cc3 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    color: transparent !important;
+}
+
+/* Change only the border and text to white on hover */
+.section0 a.homeLibraryButton:hover .homeLibraryText,
+.section0 a.homeLibraryButton:hover .homeLibraryIcon {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: white;
+    text-fill-color: white;
+    color: white !important;
 }
 ```
 
