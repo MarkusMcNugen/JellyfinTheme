@@ -3,6 +3,17 @@
    JELLYFIN CUSTOM THEME CSS
    Ultimate Collection - 10.10.x Compatible
    ================================ */
+   
+/* ============================================================================
+   ICON ENHANCEMENTS
+   ============================================================================ */
+   
+/* Metadata Provider Icons Plugin */
+@import url("https://cdn.jsdelivr.net/gh/Druidblack/jellyfin-icon-metadata@main/public-icon.css");
+
+/* Icon Replacements - Using Active Alternative to prayag17 */
+/* Repository: https://github.com/ealap/jellyfin-icons (Active Fork) */
+@import url("https://cdn.jsdelivr.net/gh/ealap/jellyfin-icons/Sharp.css");
 
 /* ============================================================================
    CORE ULTRACHROMIC THEME IMPORTS (Required Order)
@@ -50,13 +61,6 @@
 /* ============================================================================
    PLUGIN ENHANCEMENTS
    ============================================================================ */
-
-/* Metadata Provider Icons Plugin */
-@import url("https://cdn.jsdelivr.net/gh/Druidblack/jellyfin-icon-metadata@main/public-icon.css");
-
-/* Icon Replacements - Using Active Alternative to prayag17 */
-/* Repository: https://github.com/ealap/jellyfin-icons (Active Fork) */
-@import url("https://cdn.jsdelivr.net/gh/ealap/jellyfin-icons/Sharp.css");
 
 /* JellySkin Additional Styling (Optional - Uncomment to enable) */
 /* @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css"); */
@@ -246,7 +250,7 @@
     color: transparent !important;
 }
 
-/* Hover Effect for My Media Buttons - FIXED */
+/* Hover Effect for My Media Buttons */
 .section0 a.homeLibraryButton:hover::before {
     background: white !important;
 }
@@ -256,7 +260,7 @@
     background: rgba(0, 0, 0, 0.85) !important;
 }
 
-/* Change only the text to white on hover */
+/* Change only the border and text to white on hover */
 .section0 a.homeLibraryButton:hover .homeLibraryText,
 .section0 a.homeLibraryButton:hover .homeLibraryIcon {
     -webkit-background-clip: text;
