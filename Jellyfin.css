@@ -1,0 +1,396 @@
+```css
+/* ================================
+   JELLYFIN CUSTOM THEME CSS
+   Ultimate Collection - 10.10.x Compatible
+   ================================ */
+
+/* ============================================================================
+   CORE ULTRACHROMIC THEME IMPORTS (Required Order)
+   Documentation: https://github.com/CTalvio/Ultrachromic
+   ============================================================================ */
+
+/* Optional fixes and font (should be first) */
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/fixes.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/jf_font.css');
+
+/* Required core files (must be in this order) */
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/base.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/accentlist.css');
+
+/* UI Layout Components */
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/rounding.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/smallercast.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/episodelist/episodes_compactlist.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/header/header_transparent.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/login/login_minimalistic.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/fields/fields_noborder.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/cornerindicator/indicator_corner.css');
+
+/* Type/Color Scheme (REQUIRED - choose one) */
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/type/dark_withaccent.css');
+
+/* Title Page Styling */
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/titlepage/title_banner-logo.css');
+
+/* Progress Indicators */
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/progress/floating.css');
+
+/* Effects (should be last among Ultrachromic imports) */
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/effects/hoverglow.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/effects/glassy.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/effects/pan-animation.css');
+
+/* ============================================================================
+   EXTERNAL THEME ADDITIONS
+   ============================================================================ */
+
+/* Monochromic Backdrop Hack (for mobile backdrop support) */
+@import url('https://ctalvio.github.io/Monochromic/backdrop-hack_style.css');
+
+/* ============================================================================
+   PLUGIN ENHANCEMENTS
+   ============================================================================ */
+
+/* Metadata Provider Icons Plugin */
+@import url("https://cdn.jsdelivr.net/gh/Druidblack/jellyfin-icon-metadata@main/public-icon.css");
+
+/* Icon Replacements - Using Active Alternative to prayag17 */
+/* Repository: https://github.com/ealap/jellyfin-icons (Active Fork) */
+@import url("https://cdn.jsdelivr.net/gh/ealap/jellyfin-icons/Sharp.css");
+
+/* JellySkin Additional Styling (Optional - Uncomment to enable) */
+/* @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css"); */
+
+/* ============================================================================
+   CUSTOM VARIABLES & ACCENT COLORS
+   (Variables should always come after imports)
+   ============================================================================ */
+
+/* Accent Color Configuration */
+:root {
+    --accent: 0, 164, 218;  /* Custom blue accent */
+    --rounding: 12px;       /* Optional: Custom rounding */
+}
+
+/* ============================================================================
+   BACKDROP STYLING
+   ============================================================================ */
+
+/* Desktop Backdrop Styling */
+.backdropImage {
+    filter: blur(18px) saturate(120%) contrast(120%) brightness(40%);
+}
+
+/* Mobile Backdrop Animation */
+@media (max-width: 600px) {
+    .backdropImage {
+        background-size: cover;
+        opacity: 0;
+        background-position: center center;
+        animation: backgroundScrollmob 60s ease-in-out 0s;
+        filter: blur(0px);
+    }
+}
+
+/* Mobile Background Scroll Animation */
+@keyframes backgroundScrollmob {
+    0% { background-position: center top; }
+    25% { background-position: center bottom; }
+    50% { background-position: center center; }
+    75% { background-position: center top; }
+    100% { background-position: center center; }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN FOR OVERLAYS
+   ============================================================================ */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+    #overlay-disc {
+        width: 35vw !important;
+        right: 5% !important;
+        top: calc(50vh - (35vw / 2)) !important;
+    }
+    
+    #overlay-logo {
+        max-width: 60vw !important;
+        max-height: 20vh !important;
+        left: 15vw !important;
+        margin-left: 8vw !important;
+    }
+    
+    #overlay-plot {
+        max-width: 65% !important;
+        right: 35vw !important;
+        font-size: 18px !important;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    #overlay-disc {
+        width: 40vw !important;
+        right: 3% !important;
+    }
+    
+    #overlay-logo {
+        max-width: 70vw !important;
+        max-height: 18vh !important;
+        left: 10vw !important;
+        margin-left: 5vw !important;
+    }
+    
+    #overlay-plot {
+        max-width: 75% !important;
+        right: 25vw !important;
+        font-size: 16px !important;
+        top: 65% !important;
+    }
+}
+
+/* ============================================================================
+   ADDITIONAL ENHANCEMENTS
+   ============================================================================ */
+
+/* Improved focus states for accessibility */
+.focusable:focus {
+    outline: 2px solid rgba(var(--accent), 0.8) !important;
+    outline-offset: 2px !important;
+}
+
+/* Smooth transitions for interactive elements */
+.card, .cardContent, .itemAction {
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* Enhanced hover effects for cards */
+.card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Mobile External Links Fix */
+.layout-mobile .itemExternalLinks {
+    display: block !important;
+}
+
+/* Enlarged Tab Buttons for Better Touch UI */
+.headerTabs.sectionTabs {
+    text-size-adjust: 110%;
+    font-size: 110%;
+}
+
+.pageTitle {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.emby-tab-button {
+    padding: 1.75em 1.7em;
+}
+
+/* ============================================================================
+   MY MEDIA SMALL SECTION STYLING
+   ============================================================================ */
+/* My Media (Small) Section Gradient Styling */
+.section0 a.homeLibraryButton {
+    background: transparent !important;
+    color: white !important;
+    font-weight: 500 !important;
+    border-radius: var(--rounding) !important;
+    margin: 0.25em !important;
+    padding: 0.8em 1.5em !important;
+    transition: all 0.2s ease-in-out !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    position: relative !important;
+    z-index: 1 !important;
+    border: none !important;
+}
+
+/* Gradient border using pseudo-element */
+.section0 a.homeLibraryButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: var(--rounding) !important;
+    background: linear-gradient(135deg, #00a4da 0%, #aa5cc3 100%);
+}
+
+/* Create transparent inner background to simulate border */
+.section0 a.homeLibraryButton::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    z-index: -1;
+    border-radius: calc(var(--rounding) - 2px) !important;
+    background: rgba(0, 0, 0, 0.85); /* Dark background to match Jellyfin's theme */
+}
+
+/* Text Gradient Effect for My Media Buttons */
+.section0 a.homeLibraryButton .homeLibraryText,
+.section0 a.homeLibraryButton .homeLibraryIcon {
+    background: linear-gradient(135deg, #00a4da 0%, #aa5cc3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    color: transparent !important;
+}
+
+/* Hover Effect for My Media Buttons - FIXED */
+.section0 a.homeLibraryButton:hover::before {
+    background: white !important;
+}
+
+.section0 a.homeLibraryButton:hover::after {
+    /* Maintain transparent background on hover */
+    background: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Change only the text to white on hover */
+.section0 a.homeLibraryButton:hover .homeLibraryText,
+.section0 a.homeLibraryButton:hover .homeLibraryIcon {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: white;
+    text-fill-color: white;
+    color: white !important;
+}
+
+/* Active/Focus Effect for My Media Buttons */
+.section0 a.homeLibraryButton:active,
+.section0 a.homeLibraryButton:focus {
+    transform: translateY(1px) !important;
+}
+
+/* Container Styling for My Media Section */
+.section0 .itemsContainer {
+    justify-content: center !important;
+    padding: 0.5em 0 !important;
+}
+
+/* Section Title Styling */
+.section0 .sectionTitle {
+    font-weight: 600 !important;
+    font-size: 1.4em !important;
+    margin-bottom: 0.5em !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Additional styling for the media text */
+.section0 .homeLibraryText {
+    font-weight: 500;
+}
+
+/* ============================================================================
+   PAUSE SCREEN STYLING (BobHasNoSoul)
+   From: https://github.com/BobHasNoSoul/Jellyfin-PauseScreen
+   ============================================================================ */
+
+/* Disc styling - Hidden for discless pause screen */
+#overlay-disc {
+    position: absolute !important;
+    top: calc(50vh - (26vw / 2)) !important;
+    right: 7% !important;
+    width: 26vw !important;
+    height: auto !important;
+    display: none !important;
+    animation: 30s linear infinite spin !important;
+    z-index: -1 !important;
+    filter: brightness(80%) !important;
+}
+
+/* Plot description styling */
+#overlay-plot {
+    top: 61% !important;
+    max-width: 54% !important;
+    height: 50vh !important;
+    display: block !important;
+    right: 41vw !important;
+    position: absolute !important;
+    font-size: 21px !important;
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5) !important;
+    /* Added styling for consistency with theme */
+    backdrop-filter: blur(10px) !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    padding: 15px !important;
+    border-radius: var(--rounding) !important;
+    border-left: 3px solid rgba(var(--accent), 0.8) !important;
+}
+
+/* Logo styling */
+#overlay-logo {
+    position: absolute !important;
+    pointer-events: none;
+    max-width: 50vw !important; /* Max width is half the viewport width */
+    max-height: 23vh !important; /* Limits the height */
+    width: auto !important; /* Ensures no forced stretching */
+    height: auto !important; /* Preserves aspect ratio */
+    top: 25vh !important; /* Places it at a quarter of the viewport height */
+    left: 19vw !important; /* Centers within the left half */
+    transform: translateX(-50%) !important; /* Ensures true centering */
+    display: block !important;
+    margin-left: 12vw !important;
+    object-fit: contain; /* Prevents cropping/stretching */
+    /* Added filter for consistency with theme */
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5)) !important;
+}
+
+/* Details container */
+#overlay-details {
+    pointer-events: none;
+}
+
+/* Animation for spin effect */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================================================
+   THEME INFORMATION & MAINTENANCE NOTES
+   ============================================================================ */
+
+/*
+Theme Components Used:
+- Ultrachromic Theme (CTalvio) - Main theme framework
+- Druidblack/jellyfin-icon-metadata - Metadata provider icons
+- ealap/jellyfin-icons - Sharp icon replacement (active fork)
+- BobHasNoSoul/Jellyfin-PauseScreen - Discless pause screen
+- Custom featured content bar overlays for media-bar plugin
+
+Compatible with Other Mods (require separate installation):
+- Media Bar Plugin: https://github.com/IAmParadox27/jellyfin-plugin-media-bar
+- JellySkin: https://github.com/prayag17/JellySkin
+- Intro Skipper: https://github.com/ConfusedPolarBear/intro-skipper
+- Fanart: https://github.com/jellyfin/jellyfin-plugin-fanart
+- Theme Park: https://docs.theme-park.dev/themes/jellyfin/
+
+Last Updated: 2025-07-26
+Compatible with: Jellyfin 10.9.x - 10.10.x
+
+Removed Components:
+- prayag17/Jellyfin-Icons (archived repository)
+
+For updates and issues:
+- Ultrachromic: https://github.com/CTalvio/Ultrachromic
+- Icon Metadata: https://github.com/Druidblack/jellyfin-icon-metadata
+- Alternative Icons: https://github.com/ealap/jellyfin-icons
+- Pause Screen: https://github.com/BobHasNoSoul/Jellyfin-PauseScreen
+*/
+```
